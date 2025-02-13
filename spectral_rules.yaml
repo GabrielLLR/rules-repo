@@ -1,0 +1,26 @@
+extends: spectral:oas
+
+rules:
+  security-defined:
+    description: "A API deve definir autenticação (JWT, OAuth, API Key)."
+    severity: error
+    given: "$.components.securitySchemes"
+    then:
+      function: truthy
+
+  require-description:
+    description: "Todas as operações devem ter uma descrição."
+    severity: warning
+    given: "$.paths[*][*]"
+    then:
+      field: description
+      function: truthy
+
+  enforce-https:
+    description: "As APIs devem ser servidas apenas por HTTPS."
+    severity: error
+    given: "$.servers[*].url"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"
