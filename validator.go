@@ -19,7 +19,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	doc, err := libopenapi.NewDocument(data)
+	err := libopenapi.NewDocument(data)
 	if err != nil {
 		fmt.Println("Erro ao carregar OpenAPI:", err)
 		os.Exit(1)
