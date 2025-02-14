@@ -8,7 +8,7 @@ import (
 
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Println("Uso: go run validate.go <arquivo-openapi.yaml>")
+		fmt.Println("Uso: go run validate.go swagger.yaml")
 		return
 	}
 
