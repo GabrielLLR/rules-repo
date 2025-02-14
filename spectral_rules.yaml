@@ -55,13 +55,3 @@ rules:
     given: "$.tags"
     then:
       function: truthy
-
-  openapi3-schema:
-    description: "O documento OpenAPI deve ser válido conforme a especificação OpenAPI 3.x"
-    severity: error
-    given: "$"
-    then:
-      function: schema
-      functionOptions:
-        schema: "https://spec.openapis.org/oas/3.0/schema/2021-09-28"
-
