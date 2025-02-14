@@ -19,7 +19,16 @@ func main() {
 		os.Exit(1)
 	}
 
-	err := libopenapi.NewDocument(data)
+	doc, err := libopenapi.NewDocument(data)
+
+	info := doc.GetSpecInfo()
+	
+	if info != nil {
+		fmt.Println("📄 Versão do OpenAPI:", info.Version)
+	} else {
+		fmt.Println("❌ Não foi possível obter a versão do OpenAPI.")
+	}
+
 	if err != nil {
 		fmt.Println("Erro ao carregar OpenAPI:", err)
 		os.Exit(1)
